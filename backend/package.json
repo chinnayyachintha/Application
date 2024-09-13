@@ -1,0 +1,15 @@
+{
+    "name": "node-mysql-api",
+    "version": "1.0.0",
+    "description": "Node.js API with MySQL and SSL",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "body-parser": "^1.19.0",
+      "express": "^4.17.1",
+      "mysql2": "^2.3.3"
+    }
+  }
+  

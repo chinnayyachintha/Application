@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: userdb
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./certs:/usr/src/app/certs
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  frontend:
+    image: nginx:alpine
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
