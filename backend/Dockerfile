@@ -10,6 +10,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+COPY certs /usr/src/app/certs
 
 EXPOSE 3000
 

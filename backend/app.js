@@ -60,8 +60,8 @@ app.delete('/users/:id', (req, res) => {
 
 // SSL certificates
 const sslOptions = {
-  key: fs.readFileSync('./certs/server.key'),
-  cert: fs.readFileSync('./certs/server.crt')
+  key: fs.readFileSync('/usr/src/app/certs/server.key'),  // Adjust path as needed
+  cert: fs.readFileSync('/usr/src/app/certs/server.crt')   // Adjust path as needed
 };
 
 // Start server with HTTPS
