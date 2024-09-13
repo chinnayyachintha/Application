@@ -1,0 +1,9 @@
+docker run -d \
+  --name mysql \
+  -e MYSQL_ROOT_PASSWORD=India@123!@# \
+  -e MYSQL_DATABASE=userdb \
+  -e MYSQL_USER=root \
+  -e MYSQL_PASSWORD=India@123!@# \
+  -v /my/custom-db:/var/lib/mysql \
+  -p 3306:3306 \
+  mysql:latest
