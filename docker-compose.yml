@@ -3,7 +3,7 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: 'India@123!@#'
       MYSQL_DATABASE: userdb
     volumes:
       - mysql_data:/var/lib/mysql
