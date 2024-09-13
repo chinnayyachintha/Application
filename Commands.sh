@@ -56,4 +56,24 @@ $ docker build -t backend-api .
 #List out docker images 
 $ docker images
 
+#Deploy a MySQL database using Docker on the back-end VM
+$ docker run -d \
+  --name mysql-container \
+  -e MYSQL_DATABASE=userdb \
+  -e MYSQL_ROOT_PASSWORD='India@123!@#' \
+  -v /my/custom-db:/var/lib/mysql \
+  -p 3306:3306 \
+  mysql:8.0
+
+# To check whether container is running or not
+$ docker ps # to check running instances only
+$ docker ps -a # to check both running and stopped instances
+
+#Now run the Docker container of backend and link it to your running MySQL container
+docker run -d -p 3000:3000 --name backend-api --link mysql-container:mysql backend-api:latest
+
+# To check whether container is running or not
+$ docker ps # to check running instances only
+$ docker ps -a # to check both running and stopped instances
+
 

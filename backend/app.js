@@ -9,10 +9,11 @@ app.use(bodyParser.json());
 
 // MySQL database connection
 const db = mysql.createConnection({
-  host: 'mysql', // Docker container name for MySQL
-  user: 'root',
-  password: 'India@123!@#',  // Adjust based on your MySQL configuration
-  database: 'userdb'
+  host: 'mysql-container',   // This should match the name of your MySQL container in Docker
+  user: 'root',              // MySQL user
+  password: 'India@123!@#',  // MySQL root password
+  database: 'userdb',        // Your database name
+  port: 3306                 // MySQL port (default: 3306)
 });
 
 // Test database connection
