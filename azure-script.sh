@@ -27,10 +27,10 @@ az vm availability-set create --name EAST-AVSET1 --resource-group APP-RG --locat
     --platform-fault-domain-count 3 --platform-update-domain-count 5
 
 echo "Creating VMs"
-az vm create --resource-group APP-RG --name APP-RGFrontendVM1 --image Ubuntu2204 --vnet-name APP-RG-VNET1 \
+az vm create --resource-group APP-RG --name APP-RGFrontendVM1 --image UbuntuLTS --vnet-name APP-RG-VNET1 \
     --subnet APP-RG-Subnet-1 --admin-username testuser --admin-password "India@123456" --size Standard_B1s \
     --nsg APP-RG_NSG1 --availability-set EAST-AVSET1 --output tsv --query '[fqdns]'
-az vm create --resource-group APP-RG --name APP-RGBackendVM2 --image Ubuntu2204 --vnet-name APP-RG-VNET1 \
-    --subnet APP-RG-Subnet-2 --admin-username testuser --admin-password "India@123456" --size Standard_B1s \
+az vm create --resource-group APP-RG --name APP-RGBackendVM2 --image UbuntuLTS --vnet-name APP-RG-VNET1 \
+    --subnet APP-RG-Subnet-2 --admin-username testuser --admin-password "India@123456" --size D2s_v3 \
     --nsg APP-RG_NSG1 --availability-set EAST-AVSET1 --output tsv --query '[fqdns]'
 
