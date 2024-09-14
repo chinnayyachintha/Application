@@ -1,3 +1,12 @@
+#Generate Certificates:
+#First generate private key
+$ openssl genrsa -out server.key 2048
+
+#Raise request for certificate signing request
+$ openssl req -new -key server.key -out server.csr
+
+#we create certificate with help server.csr
+$ openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key  -CAcreateserial -out server.crt -days 90
 
 #Login into Frontend server
 $ apt update -y
